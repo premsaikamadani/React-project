@@ -2,7 +2,8 @@
 import './App.css'
 import Navbar from './Navbar'
 import Footer from './Footer'
-import Home from './Home'
+// import Home from './Home'
+import Product from './Product'
 
 function App() {
   
@@ -10,8 +11,10 @@ function App() {
   return (
     <div>
       <Navbar/>
-      <Home/>
+      <Product/>
+      {/* <Home/> */}
       <Footer/>
+      
     </div>
     
   )
