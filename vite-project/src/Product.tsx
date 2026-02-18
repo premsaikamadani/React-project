@@ -84,12 +84,32 @@ function Product() {
     },
   ];
 
+  const cart: Array<any> = [];
+
   const caluclateDiscountedPrice = (
     originalprice: number,
     discount: number,
   ) => {
     return originalprice - (originalprice * discount) / 100;
   };
+
+
+  const addToCart = (index: number, productId: number) => {
+    const productInfo = cart.find(product => product.id === productId)
+
+    if(!productInfo) {
+        cart.push({
+            ...products[index],
+            quantity: 1
+        });
+        window.alert('Added to cart successfully');
+    
+    }else{
+        window.alert('product already exist in cart');
+    }
+    
+    localStorage.setItem('cart',JSON.stringify(cart));
+  }
 
   return (
     <div>
@@ -120,7 +140,9 @@ function Product() {
                 )}
               </h3>
               <p>{product.discount}% off</p>
-              <button className="btn btn-primary">Add to cart</button>
+              {/* <button className="btn btn-primary" onClick={addToCart}>Add to cart</button> */}
+
+              <button className="btn btn-primary" onClick={() => addToCart(index,product.id)}>Add to cart</button>
             </div>
           </div>
         ))}
