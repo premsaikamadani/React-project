@@ -1,16 +1,14 @@
+import { Link,useNavigate} from "react-router-dom";
+
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
+
         {/* Brand */}
-        <a className="navbar-brand fw-bold" href="/">
-          <img
-            src="https://www.digitaledify.ai/images/dl-logo.webp"
-            alt="Logo"
-            className="img-fluid"
-            style={{ height: "40px" }}
-          />
-        </a>
+        <span className="navbar-brand fw-bold">
+          Navbar
+        </span>
 
         {/* Toggle Button */}
         <button
@@ -18,67 +16,41 @@ function Navbar() {
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Links */}
+        {/* Menu Items */}
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
+
             <li className="nav-item">
-              <a className="nav-link active" href="/">
+              <Link className="nav-link text-white" to="/">
                 Home
-              </a>
+              </Link>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="/about">
-                About
-              </a>
+              <Link className="nav-link text-white" to="/products">
+                Products
+              </Link>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="/services">
-                Services
-              </a>
+              <Link className="nav-link text-white" to="/Cart">
+                Cart
+              </Link>
             </li>
 
-            {/* Dropdown */}
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="/#"
-                role="button"
-                data-bs-toggle="dropdown"
-              >
-                More
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="/profile">
-                    Profile
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/settings">
-                    Settings
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/logout">
-                    Logout
-                  </a>
-                </li>
-              </ul>
+            <li className="nav-item">
+              <Link className="nav-link text-white" to="/contact">
+                Contact
+              </Link>
             </li>
+
           </ul>
         </div>
+
       </div>
     </nav>
   );
